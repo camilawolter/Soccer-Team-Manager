@@ -43,4 +43,9 @@ app.put('/teams/:id', (req, res) => {
   res.status(200).json({ updateTeam });
 });
 
+app.get('/teams/:id', (req, res) => {
+  const team = teams.find(({ id }) => id === Number(req.params.id));
+  res.status(200).json(team);
+});
+
 module.exports = app;
